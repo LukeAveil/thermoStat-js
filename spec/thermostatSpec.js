@@ -5,6 +5,8 @@ describe("Thermostat", function() {
     thermostat = new Thermostat();
   });
 
+  // ======================== Set Temperature ========================
+
   it("Has a starting temperature of 20 degrees", function() {
     expect(thermostat.currentTemperature()).toEqual(20);
   });
@@ -19,6 +21,8 @@ describe("Thermostat", function() {
     expect(thermostat.currentTemperature()).toEqual(19);
   });
 
+// ======================== Min temperature ==========================
+
   it("has a minimum temperature of 10 degrees", function () {
     for(var i = 0; i< 11; i++)
     {
@@ -26,6 +30,8 @@ describe("Thermostat", function() {
     }
     expect(thermostat.currentTemperature()).toEqual(10);
   });
+
+  // ======================== Power saving mode ======================
 
   it('should have powersaver mode', function(){
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
@@ -39,23 +45,28 @@ describe("Thermostat", function() {
     expect(thermostat.currentTemperature()).toEqual(32);
   });
 
-  it('can switch PSM off', function(){
-    thermostat.switchPowerSavingModeOff();
-    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+  describe('power saving mode', function(){
+
+    it('can switch PSM off', function(){
+      thermostat.switchPowerSavingModeOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    });
+
+    it('can switch PSM back on', function(){
+      thermostat.switchPowerSavingModeOff();
+      thermostat.switchPowerSavingModeOn();
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    });
+
+    it('should have a maximum temp of 25 degrees when PSM', function(){
+      for(var i = 0; i <= 5; i++){
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.currentTemperature()).toEqual(25);
+    });
   });
 
-  it('can switch PSM back on', function(){
-    thermostat.switchPowerSavingModeOff();
-    thermostat.switchPowerSavingModeOn();
-    expect(thermostat.isPowerSavingModeOn()).toBe(true);
-  });
-
-  it('should have a maximum temp of 25 degrees when PSM', function(){
-    for(var i = 0; i <= 5; i++){
-      thermostat.increaseTemperature();
-    }
-    expect(thermostat.currentTemperature()).toEqual(25);
-  });
+  // ======================== Reset Temperature =========================
 
   it('can be reset to the default temp', function(){
     for(var i = 0; i <= 5; i++){
@@ -65,8 +76,12 @@ describe("Thermostat", function() {
     expect(thermostat.currentTemperature()).toEqual(20);
   });
 
+  // ======================== Energy Usage ==============================
+
   describe('displaying usage levels', function() {
+
     describe('when the temperature is below 18 degrees', function() {
+
       it('it is considered low-usage', function() {
         for (var i = 0; i < 3; i++) {
           thermostat.decreaseTemperature();
@@ -76,12 +91,14 @@ describe("Thermostat", function() {
     });
 
     describe('when the temperature is between 18 and 25 degrees', function() {
+
       it('it is considered medium-usage', function() {
         expect(thermostat.energyUsage()).toEqual('medium-usage');
       });
     });
 
     describe('when the temperature is anything else', function() {
+
       it('it is considered high-usage', function() {
         thermostat.powerSavingMode = false;
         for (var i = 0; i < 6; i++) {

@@ -8,6 +8,8 @@ function Thermostat() {
   this.MEDIUM_ENERGY_USAGE_LIMIT = 18;
 }
 
+// ======================== Set Temperature ==============================
+
 Thermostat.prototype.currentTemperature = function(){
   return this._startingTemperature;
 };
@@ -27,9 +29,20 @@ Thermostat.prototype.decreaseTemperature = function(){
   return this._startingTemperature--;
 };
 
+// ======================== Max / Min temperature ==========================
+
+Thermostat.prototype.isMaximumTemperature = function() {
+  if(this.powerSavingMode === true){
+    return this._startingTemperature === this._MAXIMUM_TEMPERATURE_PSM;
+  }
+    return this._startingTemperature === this._MAXIMUM_TEMPERATURE;
+};
+
 Thermostat.prototype.isMinimumTemperature = function() {
   return this._startingTemperature === this._MINIMUM_TEMPERATURE;
 };
+
+// ======================== Power saving mode ==============================
 
 Thermostat.prototype.isPowerSavingModeOn = function(){
   return this.powerSavingMode === true;
@@ -43,16 +56,13 @@ Thermostat.prototype.switchPowerSavingModeOn = function(){
   this.powerSavingMode = true;
 };
 
-Thermostat.prototype.isMaximumTemperature = function() {
-  if(this.powerSavingMode === true){
-    return this._startingTemperature === this._MAXIMUM_TEMPERATURE_PSM;
-  }
-    return this._startingTemperature === this._MAXIMUM_TEMPERATURE;
-};
+// ======================== Reset Temperature ==============================
 
 Thermostat.prototype.resetTemperature = function() {
   this._startingTemperature = this._RESET_TEMPERATURE;
 };
+
+// ======================== Energy Usage ===================================
 
 Thermostat.prototype.energyUsage = function() {
   if (this._startingTemperature < this.MEDIUM_ENERGY_USAGE_LIMIT) {
