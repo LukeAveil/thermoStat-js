@@ -3,24 +3,38 @@
 
   <head>
     <title>Thermostat</title>
+
+    <link rel="stylesheet" href="src/css/style.css">
   </head>
 
   <body>
+    <div class="main">
+      <section>
+        <h1>Current temperature: <span id="current-temperature">20</span>&deg;C</h1>
+        <form id="select-city">
+          <input type="text" id="current-city" placeholder="Enter a city"></input>
+          <input type="submit"></input>
+        </form>
+      </section>
 
-    <section>
+      <br>
 
-      <h1 id="temperature"></h1>
+      <div id="batman">
+        <img src="http://www.ohmagif.com/wp-content/uploads/2013/01/batman-weather-reporting-on-tv.gif">
+      </div>
 
-      <p>
-        <button id="temperature-up">+</button>
-        <button id="temperature-down">-</button>
-        <button id="temperature-reset">reset</button>
-        power saving mode is <span id="power-saving-status">on</span>
-        <button id="powersaving-on">PSM on</button>
-        <button id="powersaving-off">PSM off</button>
-      </p>
-
-    </section>
+      <section>
+        <h1>Temperature indoors: <span id="temperature"></span>&deg;C</h1>
+        <p>
+          <button id="temperature-up">+</button>
+          <button id="temperature-down">-</button>
+          <button id="temperature-reset">reset</button>
+          <h1>Power saving mode is <span id="power-saving-status">on</span></h1>
+          <button id="powersaving-on">PSM on</button>
+          <button id="powersaving-off">PSM off</button>
+        </p>
+      </section>
+    </div>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="src/js/interface.js"></script>
