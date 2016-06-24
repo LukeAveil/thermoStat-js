@@ -1,3 +1,5 @@
+///////** Main **/////////
+
 html, body {
   height: 100%;
 }
@@ -6,6 +8,8 @@ body {
   display: flex;
   align-items: center;
 }
+
+///////** Layout **/////////
 
 .graphics {
   border: black 1px solid;
@@ -19,6 +23,8 @@ body {
   float: left;
 }
 
+///////** Fonts **/////////
+
 .thermostat {
   font-family: 'Mukta Vaani', sans-serif;
 }
@@ -26,6 +32,8 @@ body {
 #temperature {
   font-size: 150px;
 }
+
+///////** Colour **/////////
 
 .low-usage {
   color: #00CC66;
