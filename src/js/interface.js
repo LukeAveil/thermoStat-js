@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   var thermostat = new Thermostat();
   updateTemperature();
+  
 
 
   $('#temperature-up').click(function() { // event listener
@@ -23,12 +24,14 @@ $(document).ready(function(){
     thermostat.switchPowerSavingModeOn();
     $('#power-saving-status').text('on');
     updateTemperature();
+    $('#power-saving-status').attr('class', 'on');
   });
 
   $('#powersaving-off').click(function(){
     thermostat.switchPowerSavingModeOff();
     $('#power-saving-status').text('off');
     updateTemperature();
+    $('#power-saving-status').attr('class', 'off');
   });
 
   $('#select-city').submit(function(event){

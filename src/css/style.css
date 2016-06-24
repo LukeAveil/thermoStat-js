@@ -1,0 +1,48 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+}
+
+.graphics {
+  border: black 1px solid;
+  height: 100%;
+  width: 30%;
+  float: right;
+}
+
+.wrapper {
+  width: 70%;
+  float: left;
+}
+
+.thermostat {
+  font-family: 'Mukta Vaani', sans-serif;
+}
+
+#temperature {
+  font-size: 150px;
+}
+
+.low-usage {
+  color: #00CC66;
+}
+
+.medium-usage {
+  color: #FFCC66;
+}
+
+.high-usage {
+  color: #FF0000;
+}
+
+.on {
+  color: #00CC66;
+}
+
+.off {
+  color: #FF0000;
+}
