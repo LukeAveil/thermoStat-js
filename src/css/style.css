@@ -21,10 +21,12 @@ body {
 
 .thermostat {
   font-family: 'Mukta Vaani', sans-serif;
+
 }
 
 #temperature {
   font-size: 150px;
+  float: right;
 }
 
 .low-usage {
@@ -45,4 +47,8 @@ body {
 
 .off {
   color: #FF0000;
+}
+
+#temp-controls {
+  float: right;
 }
